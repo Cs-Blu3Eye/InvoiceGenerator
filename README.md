@@ -57,36 +57,41 @@ routes/
 
 ⚡ Installation
 1. Clone the Repository
-git clone https://github.com/your-username/saas-invoice-generator.git
+```bash
+git clone https://github.com/Cs-Blu3Eye/InvoiceGenerator.git
 cd saas-invoice-generator
-
-2. Install Dependencies
+```
+3. Install Dependencies
+```bash
 composer install
 npm install && npm run dev
+```
 
-3. Environment Setup
+5. Environment Setup
 
 Copy .env.example to .env and configure:
-
+```bash
 cp .env.example .env
 php artisan key:generate
-
+```
 
 Update database credentials in .env:
-
+```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=invoice_db
 DB_USERNAME=root
 DB_PASSWORD=secret
-
+```
 4. Run Migrations & Seeders
+```bash
 php artisan migrate --seed
-
+```
 5. Start Development Server
+```bash
 php artisan serve
-
+```
 
 Access the app at: http://127.0.0.1:8000
 
@@ -102,20 +107,16 @@ User
 Email: user@example.com
 Password: password
 
-🛣️ Roadmap
-
-See the full roadmap in ROADMAP.md
-.
-
 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 Please read the contribution guide
  before submitting pull requests.
 
-📜 License
-This project is licensed under the Proprietary License – see the LICENSE
- file for details.
+📜 License  
+This project is licensed under a [Proprietary License](./LICENSE).  
+See the LICENSE file for more details.
+
 
  ⭐ Support
 
