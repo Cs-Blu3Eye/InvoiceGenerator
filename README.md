@@ -114,7 +114,7 @@ Please read the contribution guide
  before submitting pull requests.
 
 📜 License  
-This project is licensed under a [Proprietary License](.LICENSE).  
+This project is licensed under a [Proprietary License](LICENSE).  
 See the LICENSE file for more details.
 
 
