@@ -1,23 +1,31 @@
 <?php
 
-namespace Database\Seeders;
-
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use App\Models\{Tenant, User, Customer, Invoice, InvoiceItem, Payment};
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Buat Tenant dengan relasi lengkap
+        Tenant::factory(5)->create();
+        User::factory(3)->create(); // Tiap tenant punya 3 user
+
+        Customer::factory(5)->create(); // Tiap tenant punya 5 customer
+        Invoice::factory(3)->create(); // Tiap customer punya 3 invoice
+        InvoiceItem::factory(3)->create(); // Tiap invoice punya 3 item
+        Payment::factory(2)->create(); // Tiap invoice punya 2 payment
+
+
+        // Tambah 1 user admin default
+        $tenant = Tenant::inRandomOrder()->first() ?? Tenant::factory()->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'tenant_id' => $tenant->id,
+            'password' => Hash::make('password'),
         ]);
     }
 }
